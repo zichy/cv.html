@@ -1,0 +1,166 @@
+:root {
+	--font: 'Computer Modern';
+	--link-color: #b20;
+	--v-padding: 10mm;
+	--h-padding: 20mm;
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	src: url('cmu-regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	src: url('cmu-italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	src: url('cmu-bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@page {
+	size: A4;
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+a {
+	color: var(--link-color);
+}
+
+:is(h1, h2) {
+	font-size: 1em;
+	margin: 0;
+}
+
+h2 {
+	padding-block-start: 1em;
+	margin-block-end: 1em;
+	border-top: 1px solid #ddd;
+}
+
+small {
+	color: #555;
+	font-size: 1em;
+	font-style: italic;
+}
+
+dt {
+	font-style: italic;
+	white-space: nowrap;
+	width: 15mm;
+}
+
+dd {
+	margin-inline-start: 0;
+}
+
+ul {
+	padding-inline-start: 0;
+	list-style-type: square;
+}
+
+:is(header, dd, footer) p {
+	margin: 0;
+}
+
+main {
+	flex-grow: 1;
+}
+
+.cv {
+	background-color: white;
+	color: black;
+	font-family: var(--font);
+	font-size: 1.2rem;
+	line-height: 1.5;
+	display: flex;
+	flex-direction: column;
+	width: 210mm;
+	height: 297mm;
+	padding: var(--v-padding) var(--h-padding);
+	margin: 0;
+}
+
+@media screen {
+	.cv {
+		position: relative;
+		margin: 1rem;
+		outline: 2px dashed #fcc;
+	}
+
+	.cv::before {
+		content: '';
+		position: absolute;
+		inset: var(--v-padding) var(--h-padding);
+		outline: 1px dashed #fcc;
+		pointer-events: none;
+	}
+}
+
+.cv__warning {
+	background-color: #fcc;
+	font-family: sans-serif;
+	position: absolute;
+	inset: -2px -2px auto -2px;
+	padding: 0.5rem 1rem;
+	margin-block: 0;
+}
+
+@media print {
+	.cv__warning {
+		display: none;
+	}
+}
+
+.cv__header {
+	margin-block-end: 1em;
+}
+
+.cv__header .cv__column {
+	margin-block: 1em;
+}
+
+.cv__footer {
+	text-align: right;
+	margin-block-start: 1em;
+}
+
+.cv__section {
+	break-inside: avoid;
+	margin-block-end: 1em;
+}
+
+.cv__column {
+	columns: 2;
+	column-gap: 10mm;
+	align-items: start;
+}
+
+.cv__list {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0.5em 2em;
+	margin: 0;
+}
