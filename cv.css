@@ -157,6 +157,10 @@ main {
 	align-items: start;
 }
 
+.cv__text {
+	text-align: justify;
+}
+
 .cv__list {
 	display: grid;
 	grid-template-columns: auto 1fr;
